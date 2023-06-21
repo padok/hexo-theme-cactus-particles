@@ -101,8 +101,8 @@ error_404:
 #   - grayout: whether to enable a hover effect on the logo
 logo:
   enabled: true
-  width: 100
-  height: 100
+  width: 64
+  height: 64
   url: /images/profil1_edit.webp
   gravatar: false
   grayout: false
