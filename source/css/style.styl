@@ -51,6 +51,7 @@ body
   font-family: $font-family-body
   line-height: $line-height
   text-rendering: geometricPrecision
+  overflow-x: hidden;
 
   antialias()
 
@@ -265,6 +266,7 @@ code
 
   .index::before {
       backdrop-filter: $container-blur;
+      background-color: rgba($color-background,0.9)
       content: "";
       position: absolute;
       top: -0em;
