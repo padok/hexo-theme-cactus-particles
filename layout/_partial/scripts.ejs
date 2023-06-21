@@ -13,6 +13,14 @@
   <% } %>
 <% } %>
 
+<!-- particles -->
+<% if (isCdnEnable('particles')) {%>
+  <%- getCdnScript('particles') %>
+<% } else { %>
+  <%- js('lib/jquery/particles.min') %>
+<% } %>
+
+
 <!-- clipboard -->
 <% if (is_post()){ %>
   <% if (isCdnEnable('clipboard')) { %>
