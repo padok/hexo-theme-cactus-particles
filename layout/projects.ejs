@@ -1,0 +1,110 @@
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <%- partial('_partial/post/gallery') %>
+  <div class="content" itemprop="articleBody">
+  <h1>Projects</h1>
+
+  <% if (site.data.projects) { %>
+    <section id="projects">
+      <h2>Main Projects</h2>
+      <ul class="project-list">
+        <% for(var obj in site.data.projects){ %>
+          <li class="project-item">
+            <div class="meta">
+              <% if (site.data.projects[obj].date_end) { %>
+                <%= moment(site.data.projects[obj].date_start).format('YYYY') + ' - ' + moment(site.data.projects[obj].date_end).format('YYYY') %>
+              <% } else { %>
+                <%= moment(site.data.projects[obj].date_start).format('YYYY') + ' - now' %>
+              <% } %>
+            </div>
+            <span><a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>: <%- markdown(site.data.projects[obj].desc) %></span>
+          </li>
+        <% } %>
+      </ul>
+    </section>
+    <% } %>
+
+  <%- page.content %>
+
+  <section>
+    <h2>GitHub</h2>
+    <div id="github" class="card-container"></div>
+    <script>
+        (function() {
+        $.ajax({
+            headers: {
+            Accept: 'application/vnd.github.v3.raw'
+            },
+            type: 'get',
+            url: 'https://api.github.com/users/padok/repos?sort=pushed',
+            success: function (data) {
+            var repos = data.sort(function(a, b) {
+                return (b.stargazers_count - a.stargazers_count)
+            }).slice(0, 6)
+            if (repos.length === 0) {
+                $('#github').html("No public projects here for now. Remember, not all code is created equal!")
+                return
+            }
+            var githubHtml = repos.map(function(item) {
+                var description = item.description || ""
+                if (description.replace(/[\u0391-\uFFE5]/g, "aa").length > 72) {
+                description = description.slice(0, 72) + '...'
+                }
+                return (
+                '<section class="project-card">' + 
+                    '<a class="card-wrap" href="'+ item.html_url +'" target="_blank">' +
+                    '<h3 class="card-title">' + item.name + '</h3>' +
+                    '<p class="card-description">' + description + '</p>' +
+                    '<div class="card-footer">' +
+                        '<span><i class="fa fa-star"></i>'+ item.stargazers_count +'</span>' +
+                        '<span><i class="fa fa-code-fork"></i>' + item.forks_count +'</span>' +
+                    '</div>' +
+                    '</a>' +
+                '</section>'
+                )
+            }).join('')
+            $('#github').html(githubHtml)
+            }
+        });
+        })()
+    </script>
+  </section>
+
+  <section>
+    <h2>GitLab</h2>
+    <div id="gitlab" class="card-container"></div>
+      <script>
+          (function() {
+          $.ajax({
+              headers: {
+              Accept: 'application/json'
+              },
+              type: 'get',
+              url: 'https://gitlab.com/api/v4/users/padok_/projects?order_by=last_activity_at&sort=desc&per_page=5',
+              success: function (data) {
+              var repos = data
+              if (repos.length === 0) {
+                  $('#gitlab').html("No public projects here for now. Remember, not all code is created equal!")
+                  return
+              }
+              var gitlabHtml = repos.map(function(item) {
+                  var description = item.description || ""
+                  if (description.replace(/[\u0391-\uFFE5]/g, "aa").length > 72) {
+                  description = description.slice(0, 72) + '...'
+                  }
+                  return (
+                  '<section class="project-card">' + 
+                      '<a class="card-wrap" href="'+ item.web_url +'" target="_blank">' +
+                      '<h3 class="card-title">' + item.name + '</h3>' +
+                      '<p class="card-description">' + description + '</p>' +
+                      '</a>' +
+                  '</section>'
+                  )
+              }).join('')
+              $('#gitlab').html(gitlabHtml)
+              }
+          });
+          })()
+      </script>
+    </div>
+  </section>
+</article>

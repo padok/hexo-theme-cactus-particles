@@ -5,7 +5,7 @@
 # Link to a page that gives an overview of all your projects.
 # This can be an external link (e.g., to you GitHub profile) or to another
 # page within your website.
-projects_url: http://github.com/probberechts
+projects_url: /projects/
 
 # Set the page direction to RTL or LTR. default is LTR. (if you set it 'rtl', the 'vazir' font will be loaded.)
 direction: ltr
@@ -29,24 +29,20 @@ nav:
 social_links:
   -
     icon: github
-    link: http://github.com/probberechts/cactus-dark
+    link: https://github.com/padok
+  -
+    icon: gitlab
+    link: https://gitlab.com/padok_
+  -
+    icon: telegram
+    link: https://telegram.me/singulosta
   -
     icon: twitter
-    link: /
-  -
-    icon: facebook
-    link: /
+    link: https://twitter.com/loxfra
   -
     icon: mail
-    link: mailto:name@email.com
-  -
-    icon: mastodon
-    label: mastodon.social
-    link: https://mastodon.social/@alice
-  -
-    icon: mastodon
-    label: fosstodon.org
-    link: https://fosstodon.org/@alice
+    link: mailto:louisfrankw@gmail.com
+
 
 # Customize the overview with displaying a tagcloud on the index page.
 # Options: https://hexo.io/docs/helpers.html#tagcloud
@@ -105,11 +101,11 @@ error_404:
 #   - grayout: whether to enable a hover effect on the logo
 logo:
   enabled: true
-  width: 50
-  height: 50
-  url: /images/logo.png
+  width: 100
+  height: 100
+  url: /images/profil1_edit.webp
   gravatar: false
-  grayout: true
+  grayout: false
 
 # Customize the favicons.
 # Cactus supports a limited set of the three most important icons:
@@ -122,13 +118,13 @@ logo:
 #   - gravatar: whether to create a favicon from your Gravatar
 favicon:
   desktop:
-    url: /images/favicon.ico
+    url: /images/profil1_fav.ico
     gravatar: false
   android:
-    url: /images/favicon-192x192.png
+    url: /images/profil1_edit_fav.webp
     gravatar: false
   apple:
-    url: /images/apple-touch-icon.png
+    url: /images/profil1_edit_fav.webp
     gravatar: false
 
 # The color scheme that should be used to highlight codeblocks.
@@ -215,7 +211,7 @@ gravatar:
 cdn:
   enable: true
   jquery: https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js
-  particles: https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js
+  particles: https://cdnjs.cloudflare.com/ajax/libs/tsparticles/2.10.1/tsparticles.bundle.min.js
   clipboard: https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js
   font_awesome: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
   justified_gallery_css: https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css

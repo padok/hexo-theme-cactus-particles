@@ -1,0 +1,49 @@
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <%- partial('_partial/post/gallery') %>
+  <div class="content" itemprop="articleBody">
+
+  <h1>About</h1>
+
+    <% if (site.data.experience) { %>
+      <section id="experience">
+        <h2>Experience</h2>
+        <ul class="project-list">
+          <% for(var obj in site.data.experience){ %>
+            <li class="project-item">
+              <div class="meta">
+                <% if (site.data.experience[obj].date_end) { %>
+                  <%= moment(site.data.experience[obj].date_start).format('YYYY') + ' - ' + moment(site.data.experience[obj].date_end).format('YYYY') %>
+                <% } else { %>
+                  <%= moment(site.data.experience[obj].date_start).format('YYYY') + ' - now' %>
+                <% } %>
+              </div>
+              <span><a href="<%= site.data.experience[obj].url %>"><%= site.data.experience[obj].name %></a>: <%- markdown(site.data.experience[obj].desc) %></span>
+            </li>
+          <% } %>
+        </ul>
+      </section>
+      <% } %>
+
+      <% if (site.data.education) { %>
+        <section id="education">
+          <h2>Education</h2>
+          <ul class="project-list">
+            <% for(var obj in site.data.education){ %>
+              <li class="project-item">
+                <div class="meta">
+                  <% if (site.data.education[obj].date_end) { %>
+                    <%= moment(site.data.education[obj].date_start).format('YYYY') + ' - ' + moment(site.data.education[obj].date_end).format('YYYY') %>
+                  <% } else { %>
+                    <%= moment(site.data.education[obj].date_start).format('YYYY') + ' - now' %>
+                  <% } %>
+                </div>
+                <span><a href="<%= site.data.education[obj].url %>"><%= site.data.education[obj].name %></a>: <%- markdown(site.data.education[obj].desc) %></span>
+              </li>
+            <% } %>
+          </ul>
+        </section>
+        <% } %>
+
+      <%- page.content %>
+
+</article>

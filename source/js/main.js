@@ -1,16 +1,16 @@
-/**
- * Sets up Justified Gallery.
- */
-if (!!$.prototype.justifiedGallery) {
-  var options = {
-    rowHeight: 140,
-    margins: 4,
-    lastRow: "justify"
-  };
-  $(".article-gallery").justifiedGallery(options);
-}
 
 $(document).ready(function() {
+  /**
+   * Sets up Justified Gallery.
+   */
+  if (!!$.prototype.justifiedGallery) {
+    var options = {
+      rowHeight: 140,
+      margins: 4,
+      lastRow: "justify"
+    };
+    $(".article-gallery").justifiedGallery(options);
+  }
 
   /**
    * Shows the responsive navigation menu on mobile.
@@ -110,8 +110,20 @@ $(document).ready(function() {
       });
     }
   }
+  // tsParticles.load('particles', '/assets/particles.json', function() {
+  //   console.log('callback - particles.js config loaded');
+  // });
+  // (async () => {
+  //   await loadFirePreset(tsParticles);
+  //   //await tsParticles.load("particles", "/assets/particles.json");
+  //   await tsParticles.load("particles", {
+  //     preset: "fire",
+  //   });
+  //   console.log('callback - tsparticles config loaded');
+  // })();
 
-  particlesJS.load('particles-js', '/assets/particles.json', function() {
-    console.log('callback - particles.js config loaded');
+  tsParticles.loadJSON('particles', '/assets/particles.json').then(function(p) {
+    // p is the loaded container, for using it later
+    console.log('callback - tsparticles config loaded');
   });
 });

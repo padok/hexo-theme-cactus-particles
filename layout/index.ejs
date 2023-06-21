@@ -60,15 +60,38 @@
   <% } %>
 </section>
 
+
+<% if (site.data.media) { %>
+<section id="projects">
+  <span class="h1">Media</span>
+  <ul class="project-list">
+    <% for(var obj in site.data.media){ %>
+      <li class="project-item">
+        <div class="meta"><%= moment("2018-06-02T09:38:15.000Z").format('Do MMMM YYYY') %></div>
+        <span><a href="<%= site.data.media[obj].url %>"><%= site.data.media[obj].name %></a>: <%- markdown(site.data.media[obj].desc) %></span>
+      </li>
+    <% } %>
+  </ul>
+</section>
+<% } %>
+
 <% if (site.data.projects) { %>
 <section id="projects">
   <span class="h1"><a href="<%- url_for(theme.projects_url) %>"><%= __('index.projects') %></a></span>
   <ul class="project-list">
     <% for(var obj in site.data.projects){ %>
       <li class="project-item">
-        <a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>: <%- markdown(site.data.projects[obj].desc) %>
+        <div class="meta">
+          <% if (site.data.projects[obj].date_end) { %>
+            <%= moment(site.data.projects[obj].date_start).format('YYYY') + ' - ' + moment(site.data.projects[obj].date_end).format('YYYY') %>
+          <% } else { %>
+            <%= moment(site.data.projects[obj].date_start).format('YYYY') + ' - now' %>
+          <% } %>
+        </div>
+        <span><a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>: <%- markdown(site.data.projects[obj].desc) %></span>
       </li>
     <% } %>
   </ul>
 </section>
 <% } %>
+
