@@ -259,24 +259,29 @@ code
       top: 0;
       left: 0
   }
-
   :root {
     --blur-fade: 3em;
   }
 
-  .index::before {
-      backdrop-filter: $container-blur;
-      background-color: rgba($color-background,0.9)
-      content: "";
-      position: absolute;
-      top: -0em;
-      left: calc(var(--blur-fade) * -1);
-      right: calc(var(--blur-fade) * -1);
-      bottom: -0em;
-      z-index: -10;
-      mask-image: linear-gradient(to left, transparent, black var(--blur-fade)), linear-gradient(to right, transparent, black var(--blur-fade)),linear-gradient(to top, transparent, black var(--blur-fade)),linear-gradient(to bottom, transparent, black var(--blur-fade));
-      mask-composite: intersect;
-    }
+  .index {
+    background-color: rgba($color-background,0.9)
+    box-shadow: 0 0 var(--blur-fade) var(--blur-fade) rgba(29,31,33,0.9);
+  }
+
+// Blur and mask image super slow!
+//  .index::before {
+//      backdrop-filter: $container-blur;
+//      background-color: rgba($color-background,0.9)
+//      content: "";
+//      position: absolute;
+//      top: -0em;
+//      left: calc(var(--blur-fade) * -1);
+//      right: calc(var(--blur-fade) * -1);
+//      bottom: -0em;
+//      z-index: -10;
+//      mask-image: linear-gradient(to left, transparent, black var(--blur-fade)), linear-gradient(to right, transparent, black var(--blur-fade)),linear-gradient(to top, transparent, black var(--blur-fade)),linear-gradient(to bottom, transparent, black var(--blur-fade));
+//      mask-composite: intersect;
+//    }
 
 .card-container {
   display: flex;
