@@ -23,14 +23,20 @@
     display: inline-block
     float: left
     margin-right: 20px
-    width: $logo-width
-    height: $logo-height
+    width: 64px
+    height: 64px
     border-radius: 5px
     background-size: $logo-width $logo-height
     background-repeat: no-repeat
     if $logo-grayout
       filter: grayscale(100%)
       -webkit-filter: grayscale(100%)
+
+
+  @media (min-width: 480px)
+    #logo
+      width: $logo-width
+      height: $logo-height
 
   #nav
     color: $color-accent-1
@@ -79,7 +85,7 @@ if $logo-grayout
   #header #title
     display: table
     margin-right: 5rem
-    min-height: $logo-height
+    min-height: 64px
     h1
       display: table-cell
       vertical-align: middle
