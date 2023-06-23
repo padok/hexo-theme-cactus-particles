@@ -46,7 +46,7 @@ social_links:
 
 # Customize the overview with displaying a tagcloud on the index page.
 # Options: https://hexo.io/docs/helpers.html#tagcloud
-tags_overview: false
+tags_overview: true
 
 # Customize the overview with the most recent blog posts on the index page.
 # Options:
@@ -209,7 +209,7 @@ gravatar:
 
 # loads libraries and styles from CDN instead or relying on local files
 cdn:
-  enable: true
+  enable: false
   jquery: https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js
   particles: https://cdnjs.cloudflare.com/ajax/libs/tsparticles/2.10.1/tsparticles.bundle.min.js
   clipboard: https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js

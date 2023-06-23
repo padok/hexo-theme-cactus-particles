@@ -67,7 +67,7 @@
   <ul class="project-list">
     <% for(var obj in site.data.media){ %>
       <li class="project-item">
-        <div class="meta"><%= moment("2018-06-02T09:38:15.000Z").format('Do MMMM YYYY') %></div>
+        <div class="meta"><%= date(site.data.media[obj].date, config.date_format_home) %></div>
         <span><a href="<%= site.data.media[obj].url %>"><%= site.data.media[obj].name %></a>: <%- markdown(site.data.media[obj].desc) %></span>
       </li>
     <% } %>
@@ -83,9 +83,9 @@
       <li class="project-item">
         <div class="meta">
           <% if (site.data.projects[obj].date_end) { %>
-            <%= moment(site.data.projects[obj].date_start).format('YYYY') + ' - ' + moment(site.data.projects[obj].date_end).format('YYYY') %>
+            <%= date(site.data.projects[obj].date_start, 'YYYY') + ' - ' + date(site.data.projects[obj].date_start, 'YYYY') %>
           <% } else { %>
-            <%= moment(site.data.projects[obj].date_start).format('YYYY') + ' - now' %>
+            <%= date(site.data.projects[obj].date_start, 'YYYY') + ' - now' %>
           <% } %>
         </div>
         <span><a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>: <%- markdown(site.data.projects[obj].desc) %></span>

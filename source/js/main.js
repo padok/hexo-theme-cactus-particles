@@ -1,5 +1,5 @@
 
-$(document).ready(function() {
+$(document).ready(function () {
   /**
    * Sets up Justified Gallery.
    */
@@ -15,7 +15,7 @@ $(document).ready(function() {
   /**
    * Shows the responsive navigation menu on mobile.
    */
-  $("#header > #nav > ul > .icon").click(function() {
+  $("#header > #nav > ul > .icon").click(function () {
     $("#header > #nav > ul").toggleClass("responsive");
   });
 
@@ -40,7 +40,7 @@ $(document).ready(function() {
     /**
      * Display the menu if the menu icon is clicked.
      */
-    menuIcon.click(function() {
+    menuIcon.click(function () {
       if (menu.is(":hidden")) {
         menu.show();
         menuIcon.addClass("active");
@@ -55,7 +55,7 @@ $(document).ready(function() {
      * Add a scroll listener to the menu to hide/show the navigation links.
      */
     if (menu.length) {
-      $(window).on("scroll", function() {
+      $(window).on("scroll", function () {
         var topDistance = menu.offset().top;
 
         // hide only the navigation links on desktop
@@ -67,10 +67,10 @@ $(document).ready(function() {
 
         // on tablet, hide the navigation icon as well and show a "scroll to top
         // icon" instead
-        if ( ! $( "#menu-icon" ).is(":visible") && topDistance < 50 ) {
+        if (!$("#menu-icon").is(":visible") && topDistance < 50) {
           $("#menu-icon-tablet").show();
           $("#top-icon-tablet").hide();
-        } else if (! $( "#menu-icon" ).is(":visible") && topDistance > 100) {
+        } else if (!$("#menu-icon").is(":visible") && topDistance > 100) {
           $("#menu-icon-tablet").hide();
           $("#top-icon-tablet").show();
         }
@@ -81,12 +81,12 @@ $(document).ready(function() {
      * Show mobile navigation menu after scrolling upwards,
      * hide it again after scrolling downwards.
      */
-    if ($( "#footer-post").length) {
+    if ($("#footer-post").length) {
       var lastScrollTop = 0;
-      $(window).on("scroll", function() {
+      $(window).on("scroll", function () {
         var topDistance = $(window).scrollTop();
 
-        if (topDistance > lastScrollTop){
+        if (topDistance > lastScrollTop) {
           // downscroll -> show menu
           $("#footer-post").hide();
         } else {
@@ -122,8 +122,18 @@ $(document).ready(function() {
   //   console.log('callback - tsparticles config loaded');
   // })();
 
-  tsParticles.loadJSON('particles', '/assets/particles.json').then(function(p) {
+  tsParticles.loadJSON('particles', '/assets/particles.json').then(function (p) {
     // p is the loaded container, for using it later
-    console.log('callback - tsparticles config loaded');
+
+    const strings = [
+      'Why do programmers prefer dark mode?\nBecause light attracts bugs!',
+      'Two bytes meet. The first byte asks, "Are you feeling okay?" The second byte responds, "No, I´m feeling a bit off."',
+      '3 Errors walk into a bar. The barman says, “Normally I\'d Throw you all out, but tonight I’ll make an Exception.',
+      'What’s the object-oriented way to become wealthy?\nInheritance.',
+      'Why are assembly programmers always wet?\nBecause they work under C level.'
+    ];
+    const randomIndex = Math.floor(Math.random() * strings.length);
+    console.log('One of the particles said:\n' + strings[randomIndex]);
+
   });
 });

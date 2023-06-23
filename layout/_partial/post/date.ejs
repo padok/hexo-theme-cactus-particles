@@ -1,15 +1,15 @@
 <% if (post.date) { %>
     <div class="<%= class_name %>">
       <% if (is_post()) { %>
-        <time datetime="<%= date_xml(post.date) %>" class="dt-published" itemprop="datePublished"><%= date(post.date, config.date_format) %></time>
+        <time datetime="<%= date_xml(post.date) %>" class="dt-published" itemprop="datePublished"><%= date(post.date, config.date_format_post) %></time>
         <% if (theme.post.show_updated && post.date !== post.updated) { %>
-        (Updated: <time datetime="<%= date_xml(post.updated) %>" class="dt-updated" itemprop="dateModified"><%= date(post.updated, config.date_format) %></time>)
+        (Updated: <time datetime="<%= date_xml(post.updated) %>" class="dt-updated" itemprop="dateModified"><%= date(post.updated, config.date_format_post) %></time>)
         <% } %>
       <% } else { %>
         <% if (is_home() && theme.posts_overview.sort_updated || is_archive() && theme.archive.sort_updated ) { %>
-          <time datetime="<%= date_xml(post.updated) %>" class="dt-updated" itemprop="dateModified"><%= date(post.updated, config.date_format) %></time>
+          <time datetime="<%= date_xml(post.updated) %>" class="dt-updated" itemprop="dateModified"><%= date(post.updated, config.date_format_home) %></time>
         <% } else { %>
-          <time datetime="<%= date_xml(post.date) %>" class="dt-published" itemprop="datePublished"><%= date(post.date, config.date_format) %></time>
+          <time datetime="<%= date_xml(post.date) %>" class="dt-published" itemprop="datePublished"><%= date(post.date, config.date_format_home) %></time>
         <% } %>
       <% } %>
     </div>

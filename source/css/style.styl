@@ -5,6 +5,7 @@
 @import "_extend"
 @import "_fonts"
 
+
 global-reset()
 
 *, *:before, *:after
@@ -203,7 +204,7 @@ code
     &:after
       clear: both
 
-  &:hover 
+  &:hover
     .btn-copy
       opacity: 1
 
@@ -265,7 +266,7 @@ code
 
   .index {
     background-color: rgba($color-background,0.9)
-    box-shadow: 0 0 1em 1.5em rgba(29,31,33,0.9)
+    box-shadow: 0 0 1em 1.5em rgba($color-background,0.9)
   }
 
 // Blur and mask image super slow!
@@ -314,9 +315,22 @@ code
   min-width: 110px;
   color: #908d8d;
   font-size: 14px;
+  text-align: right
 }
 
 @media (min-width: 480px)
   .project-list .project-item {
     display: flex;
   }
+
+// TODO not pretty
+.leaflet-container {
+  z-index: 0 !important;
+}
+
+.leaflet-bar a {
+  background-position: bottom !important;
+}
+
+
+[aria-hidden="true"] { visibility: hidden; }

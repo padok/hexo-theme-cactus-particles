@@ -11,9 +11,9 @@
           <li class="project-item">
             <div class="meta">
               <% if (site.data.projects[obj].date_end) { %>
-                <%= moment(site.data.projects[obj].date_start).format('YYYY') + ' - ' + moment(site.data.projects[obj].date_end).format('YYYY') %>
+                <%= date(site.data.projects[obj].date_start, 'YYYY') + ' - ' + date(site.data.projects[obj].date_end, 'YYYY') %>
               <% } else { %>
-                <%= moment(site.data.projects[obj].date_start).format('YYYY') + ' - now' %>
+                <%= date(site.data.projects[obj].date_start, 'YYYY') + ' - now' %>
               <% } %>
             </div>
             <span><a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>: <%- markdown(site.data.projects[obj].desc) %></span>
