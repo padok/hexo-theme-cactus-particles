@@ -17,7 +17,7 @@
                   <%= moment(site.data.experience[obj].date_start).format('YYYY') + ' - now' %>
                 <% } %>
               </div>
-              <span><a href="<%= site.data.experience[obj].url %>"><%= site.data.experience[obj].name %></a>: <%- markdown(site.data.experience[obj].desc) %></span>
+              <span><a href="<%= site.data.experience[obj].url %>"><%= site.data.experience[obj].name %></a>:&nbsp;<%- markdown(site.data.experience[obj].desc) %></span>
             </li>
           <% } %>
         </ul>
@@ -37,7 +37,7 @@
                     <%= moment(site.data.education[obj].date_start).format('YYYY') + ' - now' %>
                   <% } %>
                 </div>
-                <span><a href="<%= site.data.education[obj].url %>"><%= site.data.education[obj].name %></a>: <%- markdown(site.data.education[obj].desc) %></span>
+                <span><a href="<%= site.data.education[obj].url %>"><%= site.data.education[obj].name %></a>:&nbsp;<%- markdown(site.data.education[obj].desc) %></span>
               </li>
             <% } %>
           </ul>

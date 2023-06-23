@@ -68,7 +68,7 @@
     <% for(var obj in site.data.media){ %>
       <li class="project-item">
         <div class="meta"><%= date(site.data.media[obj].date, config.date_format_home) %></div>
-        <span><a href="<%= site.data.media[obj].url %>"><%= site.data.media[obj].name %></a>: <%- markdown(site.data.media[obj].desc) %></span>
+        <span><a href="<%= site.data.media[obj].url %>"><%= site.data.media[obj].name %></a>:&nbsp;<%- markdown(site.data.media[obj].desc) %></span>
       </li>
     <% } %>
   </ul>
@@ -88,7 +88,7 @@
             <%= date(site.data.projects[obj].date_start, 'YYYY') + ' - now' %>
           <% } %>
         </div>
-        <span><a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>: <%- markdown(site.data.projects[obj].desc) %></span>
+        <span><a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>:&nbsp;<%- markdown(site.data.projects[obj].desc) %></span>
       </li>
     <% } %>
   </ul>
