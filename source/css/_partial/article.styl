@@ -47,8 +47,11 @@ article
       clip-path: polygon(0 0, 0 0, calc(100% - var(--test-var)) 0, 100% var(--test-var), 100% 100% , 100% 100% , var(--test-var) 100%, 0 calc(100% - var(--test-var)));
       // clip-path: polygon(0 var(--test-var), var(--test-var) 0, calc(100% - var(--test-var)) 0, 100% var(--test-var), 100% calc(100% - var(--test-var)), calc(100% - var(--test-var)) 100%, var(--test-var) 100%, 0 calc(100% - var(--test-var)))
       display: flex;
-      align-items: center;
+      align-items: end;
       justify-content: center;
+      background-image: url("/images/spinner.svg");
+      background-repeat: no-repeat;
+      background-position: center;
 
     /* http://webdesignerwall.com/tutorials/css-elastic-videos */
     .video-container
