@@ -28,8 +28,8 @@
   <section>
     <h2>GitHub</h2>
     <div id="github" class="card-container"></div>
-    <script>
-        (function() {
+    <script defer>
+        window.addEventListener("load", function() {
         $.ajax({
             headers: {
             Accept: 'application/vnd.github.v3.raw'
@@ -65,15 +65,15 @@
             $('#github').html(githubHtml)
             }
         });
-        })()
+        })
     </script>
   </section>
 
   <section>
     <h2>GitLab</h2>
     <div id="gitlab" class="card-container"></div>
-      <script>
-          (function() {
+      <script defer>
+          window.addEventListener("load", function() {
           $.ajax({
               headers: {
               Accept: 'application/json'
@@ -103,7 +103,7 @@
               $('#gitlab').html(gitlabHtml)
               }
           });
-          })()
+          })
       </script>
     </div>
   </section>

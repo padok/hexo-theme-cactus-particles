@@ -31,3 +31,20 @@
       href="<%- url_for('/lib/font-awesome/css/all.min.css') %>"
   /></noscript>
 <% } %>
+
+<!--katex-->
+<% if (isCdnEnable('katex_css')) { %>
+  <%- getCdnLink('katex_css', {preload: true}) %>
+<% } else { %> 
+  <link
+    rel="preload"
+    href="<%- url_for('/lib/katex/css/katex.min.css') %>"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="<%- url_for('/lib/katex/css/katex.min.css') %>"
+  /></noscript>
+<% } %>
