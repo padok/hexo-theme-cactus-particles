@@ -102,7 +102,9 @@ error_404:
 logo:
   enabled: true
   width: 128
+  width-mobile: 64
   height: 128
+  height-mobile: 64
   url: /images/profil1_edit.webp
   gravatar: false
   grayout: false

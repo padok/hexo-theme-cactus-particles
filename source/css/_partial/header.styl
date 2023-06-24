@@ -23,8 +23,8 @@
     display: inline-block
     float: left
     margin-right: 20px
-    width: 64px
-    height: 64px
+    width: $logo-width-mobile
+    height: $logo-height-mobile
     border-radius: 5px
     background-size: $logo-width $logo-height
     background-repeat: no-repeat
@@ -92,6 +92,9 @@ if $logo-grayout
 
   #header #nav
     ul
+      a
+        margin-right: 0
+
       a:hover
         background: none
 
@@ -102,9 +105,10 @@ if $logo-grayout
       li.icon
         position: absolute
         top: 77px
-        right: 1rem
+        right: 0
         display: inline-block
-        text-align: center
+        text-align: right
+        padding-top: 4px
 
     ul.responsive
       li
@@ -113,10 +117,10 @@ if $logo-grayout
     ul 
       a[aria-label="Menu"]
         display: inline-block
-        min-width: 48px
+        min-width: 60px
         min-height: 48px
 
     li:not(:first-child)
       padding-top: 1rem
-      padding-left: $logo-width + 20px
+      padding-left: $logo-width-mobile + 20px
       font-size: 1rem

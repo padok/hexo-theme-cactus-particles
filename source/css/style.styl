@@ -236,30 +236,33 @@ code
 #header-post #actions
   direction: ltr !important
 
-#particles canvas {
-    display: block;
-    vertical-align: bottom;
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
+#particles {
+    visibility: hidden;
     opacity: 0;
-    -webkit-transition: opacity .8s ease, -webkit-transform 1.4s ease;
-    transition: opacity .8s ease, transform 1.4s ease
+    transition: visibility 0s, opacity 0s;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -10;
+    top: 0;
+    left: 0
+}
+
+#particles canvas{
+  display: none;
 }
 
 @media (min-width: 480px)
-  #particles canvas {
+  #particles {
+    visibility: visible;
     opacity: 1;
+    transition: visibility 0s, opacity 2s ease-in-out 1s;
   }
 
-  #particles {
-      width: 100%;
-      height: 100%;
-      position: fixed;
-      z-index: -10;
-      top: 0;
-      left: 0
+  #particles canvas{
+    display: block;
   }
+
   :root {
     --blur-fade: 3em;
   }
@@ -316,8 +319,11 @@ code
   min-width: 110px;
   color: #908d8d;
   font-size: 14px;
-  text-align: right
 }
+@media (min-width: 480px)
+  .project-list .project-item .meta {
+    text-align: right
+  }
 
 @media (min-width: 480px)
   .project-list .project-item {
