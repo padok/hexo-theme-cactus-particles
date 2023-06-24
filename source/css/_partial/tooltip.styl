@@ -1,7 +1,7 @@
 // ref: https://github.com/primer/primer/blob/master/modules/primer-tooltips/lib/tooltips.scss
 .tooltipped
   position: relative
-  
+
 // This is the tooltip bubble
 .tooltipped::after
   position: absolute
@@ -10,7 +10,7 @@
   padding: .2em .5em
   -webkit-font-smoothing: subpixel-antialiased
   color: $color-background
-  font-display: swap // @stylint ignore
+  font-display: $font-display; // @stylint ignore
   font-weight: 400
   font-size: $font-size * 0.8
   font-family: $font-family-body
@@ -23,7 +23,7 @@
   background: $color-text
   border-radius: 3px
   opacity: 0
-  
+
 // This is the tooltip arrow
 .tooltipped::before
   position: absolute
