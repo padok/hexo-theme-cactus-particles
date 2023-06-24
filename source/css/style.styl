@@ -59,6 +59,19 @@ body
 
   @extend $base-style
 
+@media print
+  .content
+    padding: 0 !important
+
+  nav
+    display: none !important
+
+  #nav
+    display: none !important
+
+  #header
+    margin: 0 !important
+
 .content
   position: relative
   display: flex
@@ -68,6 +81,26 @@ body
 
   p
     hyphens(auto)
+
+  span
+    page-break-before: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-after: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-inside: avoid; /* or 'auto' */
+
+  section
+    page-break-before: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-after: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-inside: avoid; /* or 'auto' */
+
+  img
+    page-break-before: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-after: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-inside: avoid; /* or 'auto' */
+
+  .article-img
+    page-break-before: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-after: auto; /* 'always,' 'avoid,' 'left,' 'inherit,' or 'right' */
+    page-break-inside: avoid; /* or 'auto' */
 
   code
     hyphens(manual)
@@ -119,6 +152,10 @@ body
 
 .max-width
   max-width: $page-width
+
+@media print
+  .max-width
+    max-width: 100%
 
 @media (max-width: 480px)
   // smaller margins at smaller screen widths
@@ -255,40 +292,22 @@ code
   display: none;
 }
 
-@media (min-width: 480px)
-  #particles {
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 0s, opacity 2s ease-in-out 1s;
-  }
+@media not print
+  @media (min-width: 480px)
+    #particles {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility 0s, opacity 2s ease-in-out 1s;
+    }
 
-  #particles canvas{
-    display: block;
-  }
+    #particles canvas{
+      display: block;
+    }
 
-  :root {
-    --blur-fade: 3em;
-  }
-
-  .index {
-    background-color: rgba($color-background,0.9)
-    box-shadow: 0 0 1em 1.5em rgba($color-background,0.9)
-  }
-
-// Blur and mask image super slow!
-//  .index::before {
-//      backdrop-filter: $container-blur;
-//      background-color: rgba($color-background,0.9)
-//      content: "";
-//      position: absolute;
-//      top: -0em;
-//      left: calc(var(--blur-fade) * -1);
-//      right: calc(var(--blur-fade) * -1);
-//      bottom: -0em;
-//      z-index: -10;
-//      mask-image: linear-gradient(to left, transparent, black var(--blur-fade)), linear-gradient(to right, transparent, black var(--blur-fade)),linear-gradient(to top, transparent, black var(--blur-fade)),linear-gradient(to bottom, transparent, black var(--blur-fade));
-//      mask-composite: intersect;
-//    }
+    .index {
+      background-color: rgba($color-background,0.9)
+      box-shadow: 0 0 1em 1.5em rgba($color-background,0.9)
+    }
 
 .card-container {
   display: flex;
@@ -357,9 +376,17 @@ code
   background-color: rgba($color-background,0.9)
   box-shadow: 0 0 0.5em 0.5em rgba($color-background,0.9)
 
+@media print
+  #toc .toc-item
+    display: none
+
 #actions
   background-color: rgba($color-background,0.9)
   box-shadow: 0 0 0.5em 0.5em rgba($color-background,0.9)
+
+@media print
+  #actions
+    display: none
 
 // Link preview
 
