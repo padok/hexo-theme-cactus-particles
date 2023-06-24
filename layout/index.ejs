@@ -85,7 +85,7 @@
           <% if (site.data.projects[obj].date_end) { %>
             <%= date(site.data.projects[obj].date_start, 'YYYY') + ' - ' + date(site.data.projects[obj].date_start, 'YYYY') %>
           <% } else { %>
-            <%= date(site.data.projects[obj].date_start, 'YYYY') + ' - now' %>
+            <%= date(site.data.projects[obj].date_start, 'YYYY') + ' - now' %>&nbsp;
           <% } %>
         </div>
         <span><a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>:&nbsp;<%- markdown(site.data.projects[obj].desc) %></span>

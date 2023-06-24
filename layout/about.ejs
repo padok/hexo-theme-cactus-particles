@@ -14,7 +14,7 @@
                 <% if (site.data.experience[obj].date_end) { %>
                   <%= moment(site.data.experience[obj].date_start).format('YYYY') + ' - ' + moment(site.data.experience[obj].date_end).format('YYYY') %>
                 <% } else { %>
-                  <%= moment(site.data.experience[obj].date_start).format('YYYY') + ' - now' %>
+                  <%= moment(site.data.experience[obj].date_start).format('YYYY') + ' - now' %>&nbsp;
                 <% } %>
               </div>
               <span><a href="<%= site.data.experience[obj].url %>"><%= site.data.experience[obj].name %></a>:&nbsp;<%- markdown(site.data.experience[obj].desc) %></span>
@@ -34,7 +34,7 @@
                   <% if (site.data.education[obj].date_end) { %>
                     <%= moment(site.data.education[obj].date_start).format('YYYY') + ' - ' + moment(site.data.education[obj].date_end).format('YYYY') %>
                   <% } else { %>
-                    <%= moment(site.data.education[obj].date_start).format('YYYY') + ' - now' %>
+                    <%= moment(site.data.education[obj].date_start).format('YYYY') + ' - now' %>&nbsp;
                   <% } %>
                 </div>
                 <span><a href="<%= site.data.education[obj].url %>"><%= site.data.education[obj].name %></a>:&nbsp;<%- markdown(site.data.education[obj].desc) %></span>
