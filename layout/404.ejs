@@ -1,9 +1,38 @@
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
     <%- partial('_partial/post/gallery') %>
     <div class="content" itemprop="articleBody">
-        <% if (theme.error_404.enabled && theme.error_404.title && theme.error_404.description ) { %>
-            <h1><%= theme.error_404.title %></h1>
-            <p><%= theme.error_404.description %></p>
-        <% } %>
+        <div class="glitch">
+            <% if (theme.error_404.enabled && theme.error_404.title && theme.error_404.description ) { %>
+                <h1><%= theme.error_404.title %></h1>
+                <p><%= theme.error_404.description %></p>
+                <div class="live-feed-container">
+                    <img loading="lazy" class="article-img live-feed" src="<%= theme.error_404.image %>" alt="hacking in progress">
+                    <div class="blink">&#x2022; live</div>
+                  </div>
+            <% } %>
+            <div class="glitch__layers">
+                <div class="glitch__layer">
+                    <% if (theme.error_404.enabled && theme.error_404.title && theme.error_404.description ) { %>
+                        <h1><%= theme.error_404.title %></h1>
+                        <p><%= theme.error_404.description %></p>
+                        <img loading="lazy" class="article-img" src="<%= theme.error_404.image_glitch %>" alt="">
+                    <% } %>
+                </div>
+                <div class="glitch__layer">
+                    <% if (theme.error_404.enabled && theme.error_404.title && theme.error_404.description ) { %>
+                        <h1><%= theme.error_404.title %></h1>
+                        <p><%= theme.error_404.description %></p>
+                        <img loading="lazy" class="article-img" src="<%= theme.error_404.image_glitch %>" alt="">
+                        <% } %>
+                </div>
+                <div class="glitch__layer">
+                    <% if (theme.error_404.enabled && theme.error_404.title && theme.error_404.description ) { %>
+                        <h1><%= theme.error_404.title %></h1>
+                        <p><%= theme.error_404.description %></p>
+                        <img loading="lazy" class="article-img" src="<%= theme.error_404.image_glitch %>" alt="">
+                        <% } %>
+                </div>
+            </div>
+        </div>
     </div>
 </article>
