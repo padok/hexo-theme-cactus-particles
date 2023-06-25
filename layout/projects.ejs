@@ -6,22 +6,9 @@
   <% if (site.data.projects) { %>
     <section id="projects">
       <h2>Main Projects</h2>
-      <ul class="project-list">
-        <% for(var obj in site.data.projects){ %>
-          <li class="project-item">
-            <div class="meta">
-              <% if (site.data.projects[obj].date_end) { %>
-                <%= date(site.data.projects[obj].date_start, 'YYYY') + ' - ' + date(site.data.projects[obj].date_end, 'YYYY') %>
-              <% } else { %>
-                <%= date(site.data.projects[obj].date_start, 'YYYY') + ' - now' %>&nbsp;
-              <% } %>
-            </div>
-            <span><a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>: <%- markdown(site.data.projects[obj].desc) %></span>
-          </li>
-        <% } %>
-      </ul>
+      <%- partial('_partial/projects_list') %>
     </section>
-    <% } %>
+  <% } %>
 
   <%- page.content %>
 

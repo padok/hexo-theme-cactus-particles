@@ -78,20 +78,7 @@
 <% if (site.data.projects) { %>
 <section id="projects">
   <span class="h1"><a href="<%- url_for(theme.projects_url) %>"><%= __('index.projects') %></a></span>
-  <ul class="project-list">
-    <% for(var obj in site.data.projects){ %>
-      <li class="project-item">
-        <div class="meta">
-          <% if (site.data.projects[obj].date_end) { %>
-            <%= date(site.data.projects[obj].date_start, 'YYYY') + ' - ' + date(site.data.projects[obj].date_start, 'YYYY') %>
-          <% } else { %>
-            <%= date(site.data.projects[obj].date_start, 'YYYY') + ' - now' %>&nbsp;
-          <% } %>
-        </div>
-        <span><a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>:&nbsp;<%- markdown(site.data.projects[obj].desc) %></span>
-      </li>
-    <% } %>
-  </ul>
+  <%- partial('_partial/projects_list') %>
 </section>
 <% } %>
 

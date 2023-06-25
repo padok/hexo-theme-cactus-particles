@@ -42,7 +42,14 @@
             <% } %>
           </ul>
         </section>
-        <% } %>
+      <% } %>
+
+      <% if (site.data.projects) { %>
+        <section id="projects">
+          <h2>Projects</h2>
+          <%- partial('_partial/projects_list') %>
+        </section>
+      <% } %>
 
       <%- page.content %>
 

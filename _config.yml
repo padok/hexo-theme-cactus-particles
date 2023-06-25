@@ -122,7 +122,7 @@ logo:
 #   - gravatar: whether to create a favicon from your Gravatar
 favicon:
   desktop:
-    url: /images/profil1_fav.ico
+    url: /images/favicon.ico
     gravatar: false
   android:
     url: /images/profil1_edit_fav.webp
