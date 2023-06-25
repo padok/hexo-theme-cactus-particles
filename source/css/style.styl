@@ -292,19 +292,27 @@ code
   display: none;
 }
 
-@media not print
-  @media (min-width: 480px)
-    #particles {
-      visibility: visible;
-      opacity: 1;
-      transition: visibility 0s, opacity 2s ease-in-out 1s;
-    }
+@media print
+  #particles canvas{
+    display: none !important;
+  }
 
-    #particles canvas{
-      display: block;
-    }
+@media (min-width: 480px)
+  #particles {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 2s ease-in-out 1s;
+  }
 
+  #particles canvas{
+    display: block;
+  }
+  @media print
     .index {
+      background-color: none
+      box-shadow: none
+    }
+  .index {
       background-color: rgba($color-background,0.9)
       box-shadow: 0 0 1em 1.5em rgba($color-background,0.9)
     }
@@ -353,10 +361,6 @@ code
   }
 
 // TODO not pretty
-.leaflet-container {
-  z-index: 0 !important;
-}
-
 .leaflet-bar a {
   background-position: bottom !important;
 }
