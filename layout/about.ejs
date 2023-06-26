@@ -11,7 +11,9 @@
           <% for(var obj in site.data.experience){ %>
             <li class="project-item">
               <div class="meta">
-                <% if (site.data.experience[obj].date_end) { %>
+                <% if (site.data.experience[obj].date_start === site.data.experience[obj].date_end) { %>
+                  <%= date(site.data.experience[obj].date_start, 'YYYY') %>
+                <% } else if (site.data.experience[obj].date_end) { %>
                   <%= moment(site.data.experience[obj].date_start).format('YYYY') + ' - ' + moment(site.data.experience[obj].date_end).format('YYYY') %>
                 <% } else { %>
                   <%= moment(site.data.experience[obj].date_start).format('YYYY') + ' - now' %>&nbsp;
@@ -31,8 +33,10 @@
             <% for(var obj in site.data.education){ %>
               <li class="project-item">
                 <div class="meta">
-                  <% if (site.data.education[obj].date_end) { %>
-                    <%= moment(site.data.education[obj].date_start).format('YYYY') + ' - ' + moment(site.data.education[obj].date_end).format('YYYY') %>
+                  <% if (site.data.education[obj].date_start === site.data.education[obj].date_end) { %>
+                    <%= date(site.data.education[obj].date_start, 'YYYY') %>
+                  <% } else if (site.data.education[obj].date_end) { %>
+                      <%= moment(site.data.education[obj].date_start).format('YYYY') + ' - ' + moment(site.data.education[obj].date_end).format('YYYY') %>
                   <% } else { %>
                     <%= moment(site.data.education[obj].date_start).format('YYYY') + ' - now' %>&nbsp;
                   <% } %>
@@ -52,12 +56,20 @@
       <% } %>
 
       <% if (site.data.communication) { %>
-        <section id="projects">
+        <section id="communication">
           <h2>Communication skills</h2>
           <ul class="project-list">
             <% for(var obj in site.data.communication){ %>
               <li class="project-item">
-                <div class="meta"><%= date(site.data.communication[obj].date, config.date_format_home) %></div>
+                <div class="meta">
+                  <% if (site.data.communication[obj].date_start === site.data.communication[obj].date_end) { %>
+                    <%= date(site.data.communication[obj].date_start, 'YYYY') %>
+                  <% } else if (site.data.communication[obj].date_end) { %>
+                    <%= date(site.data.communication[obj].date_start, 'YYYY') + ' - ' + date(site.data.communication[obj].date_end, 'YYYY') %>
+                  <% } else { %>
+                    <%= date(site.data.communication[obj].date_start, 'YYYY') + ' - now' %>&nbsp;
+                  <% } %>
+                </div>
                 <span><a href="<%= site.data.communication[obj].url %>"><%= site.data.communication[obj].name %></a>:&nbsp;<%- markdown(site.data.communication[obj].desc) %></span>
               </li>
             <% } %>

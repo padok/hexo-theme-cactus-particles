@@ -2,7 +2,9 @@
   <% for(var obj in site.data.projects){ %>
     <li class="project-item">
       <div class="meta">
-        <% if (site.data.projects[obj].date_end) { %>
+        <% if (site.data.projects[obj].date_start === site.data.projects[obj].date_end) { %>
+          <%= date(site.data.projects[obj].date_start, 'YYYY') %>
+        <% } else if (site.data.projects[obj].date_end) { %>
           <%= date(site.data.projects[obj].date_start, 'YYYY') + ' - ' + date(site.data.projects[obj].date_end, 'YYYY') %>
         <% } else { %>
           <%= date(site.data.projects[obj].date_start, 'YYYY') + ' - now' %>&nbsp;
