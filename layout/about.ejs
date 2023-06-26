@@ -51,6 +51,20 @@
         </section>
       <% } %>
 
+      <% if (site.data.communication) { %>
+        <section id="projects">
+          <h2>Communication skills</h2>
+          <ul class="project-list">
+            <% for(var obj in site.data.communication){ %>
+              <li class="project-item">
+                <div class="meta"><%= date(site.data.communication[obj].date, config.date_format_home) %></div>
+                <span><a href="<%= site.data.communication[obj].url %>"><%= site.data.communication[obj].name %></a>:&nbsp;<%- markdown(site.data.communication[obj].desc) %></span>
+              </li>
+            <% } %>
+          </ul>
+        </section>
+      <% } %>
+
       <%- page.content %>
 
 </article>
