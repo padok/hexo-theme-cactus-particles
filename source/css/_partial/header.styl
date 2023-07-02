@@ -21,22 +21,41 @@
 
   #logo
     display: inline-block
-    float: left
-    margin-right: 20px
-    width: $logo-width-mobile
-    height: $logo-height-mobile
-    border-radius: 5px
-    background-size: $logo-width $logo-height
-    background-repeat: no-repeat
+    // Needed?
+    //background-size: $logo-width $logo-height
+    //background-repeat: no-repeat
     if $logo-grayout
       filter: grayscale(100%)
       -webkit-filter: grayscale(100%)
+    clip-path: polygon(50% 0%,92.5% 25%,92.5% 75%,50% 100%,7.5% 75%,7.5% 25%);
+    background-color: $color-accent-1;
 
+  $logo_border = 6px
+  $logo_border-mobile = 3px
+  #logo-border
+    float: left
+    margin-right: 20px
+    clip-path: polygon(50% 0%,92.5% 25%,92.5% 75%,50% 100%,7.5% 75%,7.5% 25%);
+    background-color: $color-accent-1
 
   @media (min-width: 480px)
     #logo
+      width: $logo-width - $logo_border * 2
+      height: $logo-height - $logo_border * 2
+    #logo-border
       width: $logo-width
-      height: $logo-height
+      height: $logo-width
+      padding: $logo_border
+
+  
+  @media (max-width: 480px)
+    #logo
+      width: $logo-width-mobile - $logo_border-mobile * 2
+      height: $logo-height-mobile - $logo_border-mobile * 2
+    #logo-border
+      width: $logo-width-mobile
+      height: $logo-width-mobile
+      padding: $logo_border-mobile
 
   #nav
     color: $color-accent-1

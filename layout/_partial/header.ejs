@@ -1,6 +1,7 @@
 <header id="header">
   <a class="u-url u-uid" href="<%- url_for("/") %>">
   <% if (theme.logo && theme.logo.enabled) { %>
+    <div id="logo-border">
     <% if (theme.gravatar && (theme.gravatar.email || theme.gravatar.hash) && theme.logo.gravatar) { %>
       <% if (theme.gravatar.email) { %>
         <img id="logo" alt class="u-logo"
@@ -14,6 +15,7 @@
     <% } else { %>
       <img id="logo" alt class="u-logo" src="<%- url_for(theme.logo.url) %>" />
     <% } %>
+    </div>
   <% } %>
     <div id="title">
       <h1 class="p-name"><%= config.title %></h1>
