@@ -53,7 +53,9 @@
     <%- partial('./google_analytics.ejs') %>
     <%- partial('./umami_analytics.ejs') %>
     <!-- styles -->
-    <%- css('css/style') %>
+    <!-- <%- css('css/style') %> -->
+    <link rel="stylesheet" id="light" class="alternate" href="/css/style-light.css" />
+    <link rel="stylesheet" id="dark"  class="alternate" href="/css/style-dark.css" media="(prefers-color-scheme: dark)" />
     <!-- persian styles -->
     <% if (theme.direction && theme.direction === 'rtl') { %>
       <%- css('css/rtl') %>
